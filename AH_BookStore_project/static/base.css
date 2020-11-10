@@ -1,0 +1,14 @@
+body{
+	background-color:silver;
+}
+
+#logo{
+	min-width:130px;
+	width:10%;
+	display:inline;
+}
+
+#footer{
+	width:100vw;
+	text-align: center;
+}

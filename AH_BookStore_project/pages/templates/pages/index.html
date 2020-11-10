@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+	{{page.title}}
+{% endblock title %}
+{% autoescape off %}
+	{% block content %}
+		{{page.content}}
+	{% endblock content %}
+{% endautoescape %}
