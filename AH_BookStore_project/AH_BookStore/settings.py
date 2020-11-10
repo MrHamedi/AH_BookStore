@@ -1,3 +1,4 @@
+import os
 """
 Django settings for AH_BookStore project.
 
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pa=3@d_1e%d=z-+l-v70mepo!o_uq_wjcwgl55#o2=j^h%5d_&'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
