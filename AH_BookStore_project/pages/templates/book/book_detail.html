@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	{{book.name}}
+{% endblock title %}
+{% block content %}
+	<h2 id="book_detail_page_name">{{book.name}}</h2>
+	<table id="book_detail_page_table">
+	<tr>
+		<th>Author : </th>
+		<td>
+			{% for author in book.authors_list %}
+				{{author}}
+			{% endfor %}
+		</td>
+		<th>Publish : </th><td>{{book.publish|date:"Y/m/d"}}</td>
+	</tr>
+	<tr>
+		<th>Publisher :</th>
+		<td>{{book.publisher}}</td>
+		<th>pages : </th>
+		<td>{{book.pages}}</td>
+	</tr>
+	<tr>
+		<th>Price : </th>
+		<td>{{book.book_price}}</td>
+		<th>offer time :</th>
+		<td>{{book.offer_time|date:"Y/m/d"}}</td>
+	</tr>
+	<tr>
+		<th>subject :</th>
+		<td>{{book.get_subject_display}}</td>
+	</tr>
+	</table>
+	<div id="book_detail_page_description">
+		{{book.description}}
+	</div>
+	{% if book.image1 %}
+		<a href="{{book.image1.url}}"><img class="book_detail_page_image" src="{{book.image1.url}}"></a>
+	{% else %}
+		<img class="book_detail_page_image" src="{%  static 'logo.png'%}">
+	{% endif %}
+	{% if book.image2 %}
+		<a href="{{book.image2.url}}"><img class="book_detail_page_image" src="{{book.image2.url}}"></a>
+	{% else %}
+		<img class="book_detail_page_image" src="{% static 'logo.png'%}">
+	{% endif %}
+{% endblock content %}
