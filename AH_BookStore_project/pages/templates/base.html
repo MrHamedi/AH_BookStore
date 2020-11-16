@@ -17,6 +17,11 @@
 		<div id="main">
 		{% block content %}
 		{% endblock content %}
+		{% if messages %}
+			{% for message in messages %}
+				{{message}}
+			{% endfor %}
+		{% endif %}
 		</div>
 		<div id="footer">
 			<em>All rights reserved by AH Book store </em>
