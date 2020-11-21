@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}
+	sign up
+{% endblock title %}
+{% block content %}
+	<em>Fill this form to register next we will send an email to your email adress with adress to activate it.</em>
+	<form method="post" action="." novalidate="" id="user_register_form">
+		{{form.as_p}}
+		{{code_form.as_p}}
+		{% csrf_token %}
+		<input type="submit" value="sign up">
+	</form>
+{% endblock content %}

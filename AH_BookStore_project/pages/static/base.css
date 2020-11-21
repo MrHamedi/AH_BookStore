@@ -84,3 +84,32 @@ body{
 	background-color:black;
 	color:#efefef;
 }
+
+#bar{
+	width:98vw;
+	margin-bottom:2%;
+	height:10vh;
+	min-height:25px;
+	background-color:white;
+}
+
+#bar button{
+	height:100%;
+	min-height:25px;
+	padding-left:0px;
+	padding-right:0px;
+	float:left;
+	width:20%;
+	border:silver solid 2px;
+	border-radius:3%;
+}
+
+#messages_error{
+	background-color:#efefef;
+	float:right;
+	margin:20px;
+}
+
+#user_register_form{
+	text-align:center;
+}

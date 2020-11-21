@@ -1,4 +1,5 @@
 import os
+from django.urls import reverse_lazy
 """
 Django settings for AH_BookStore project.
 
@@ -12,7 +13,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'Book.apps.BookConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
@@ -128,3 +131,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_HOST_USER =os.environ.get("EMAIL_USERNAME")
+EMAIL_HOST_PASSWORD =os.environ.get("EMAIL_PASSWORD")
+EMAIL_USE_TLS=True 
+EMAIL_PORT = 587 
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+SITE_ID = 1

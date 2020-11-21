@@ -59,6 +59,7 @@ class Book(models.Model):
 	offer_time=models.DateTimeField()
 	slug=models.SlugField(max_length=200,unique=True)
 	subject=models.CharField(max_length=100,choices=subjects,default="Others")
+	update=models.DateTimeField(auto_now=True,null=True)
 
 	class Meta:
 		ordering=("-offer_time",)
