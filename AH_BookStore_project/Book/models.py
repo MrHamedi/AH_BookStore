@@ -1,46 +1,10 @@
 from django.db import models 
+from author.models import Author 
+from publisher.models import Publisher
 from django.urls import reverse
 from datetime import datetime
 from random import randrange
 from django.urls import reverse
-
-class Author(models.Model):
-	name=models.CharField(max_length=200)
-	About=models.TextField(blank=True)
-	image=models.ImageField(upload_to=f"authors/{datetime.now().year}/{datetime.now().month}/{datetime.now().day}/",null=True,blank=True)
-	slug=models.SlugField(unique=True,max_length=200)
-	birthday=models.DateField()
-	
-	def __str__(self):
-		return(self.name)
-
-	def slug_maker(self):
-		slug=f"Author/{self.name}+{self.birthay}"
-		try:
-			author=Author.objects.get(slug=slug)
-			while(author):
-				slug=f"Author/{self.name}/{self.birthay}/{randrange(1000000,9999999)}"
-				author=Author.objects.get(slug=slug)
-
-		except models.Model.DoesNotExist:
-			return(slug)
-
-
-
-class Publisher(models.Model):
-	name=models.CharField(max_length=300)
-	About=models.TextField(blank=True)
-	adress=models.TextField(blank=True)
-	email=models.EmailField(blank=True)
-	phone=models.CharField(max_length=11,blank=True)
-	image=models.ImageField(upload_to=f"publishers/{datetime.now().year}/{datetime.now().month}/{datetime.now().day}/",null=True,blank=True)
-	slug=models.SlugField(unique=True,max_length=200)
-
-	def __str__(self):
-		return(self.name)
-
-	def slug_maker(self):
-		return(f"Publisher/{self.name}")
 
 subjects=(("EDU","Education"),("HiS","Historical"),("NOV","Novel"),("POE","Poem"),("MAG","Magazin"),("CHI","Childish"),("OTH","Others"))
 
@@ -60,6 +24,7 @@ class Book(models.Model):
 	slug=models.SlugField(max_length=200,unique=True)
 	subject=models.CharField(max_length=100,choices=subjects,default="Others")
 	update=models.DateTimeField(auto_now=True,null=True)
+	book=models.FileField(null=True)
 
 	class Meta:
 		ordering=("-offer_time",)

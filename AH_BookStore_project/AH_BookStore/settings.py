@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'publisher.apps.PublisherConfig',
+    'author.apps.AuthorConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
@@ -143,3 +145,6 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
