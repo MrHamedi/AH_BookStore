@@ -10,14 +10,14 @@
 		<th>Author : </th>
 		<td>
 			{% for author in book.authors_list %}
-				{{author}}
+				<a href="{% url 'author:author_detail' author.id  %}">{{author}}</a>
 			{% endfor %}
 		</td>
 		<th>Publish : </th><td>{{book.publish|date:"Y/m/d"}}</td>
 	</tr>
 	<tr>
 		<th>Publisher :</th>
-		<td>{{book.publisher}}</td>
+		<td><a href="{% url 'publisher:publisher_detail' book.publisher.id %}">{{book.publisher}}</td></a>
 		<th>pages : </th>
 		<td>{{book.pages}}</td>
 	</tr>
@@ -45,5 +45,5 @@
 	{% else %}
 		<img class="book_detail_page_image" src="{% static 'logo.png'%}">
 	{% endif %}
-	<a href="share/" id="book_sender"><button>Send it to me</button></a>
+	<a href="/media/{{book.book.name}}" id="book_sender"><button>Download</button></a>
 {% endblock content %}

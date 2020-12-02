@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+	{{publisher.name}}
+{% endblock title %}
+{% block content %}
+{% if publisher.image %}
+	<a href="{{publisher.image.url}}"><img src="{{publisher.image.url}}" id="publisher_image"></a>
+{% endif %}
+<table id="publisher_detail_table">
+	<tr>
+	<th>Name </th><td>{{publisher.name}}</td><th>email </th><td>{{publisher.email}}<td>
+	</tr>
+	<tr>
+		<th>phone </th><td>{{publisher.phone}}</td><th>adress </th><td>{{publisher.adress}}</td>
+	</tr>
+</table>
+<div id="publisher_about">{{publisher.About}}</div>
+<div id="publisher_books">
+	<h3 id="publisher_detail_books">Books</h3>
+	<table id="publisher_detail_table">
+		<tr><th>Name</th><th>Authors</th></tr>
+		{% for book in books %}
+		<tr>
+			<td><a href="{{book.get_absolute_url}}">{{book.name}}</a></td>
+			{% for author in book.authors_list %}
+				<td>{{author}}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock content %}

@@ -32,7 +32,9 @@ body{
 	width:100%;
 	border-bottom:2px #efefef solid;
 }	
-
+.book_list_table th,td{
+	width:20%;
+}
 
 .book_list_image{
 	width:10vw;
@@ -60,8 +62,9 @@ body{
 }
 
 .book_detail_page_image{
-	width:100px;
-	height:150px;
+	width:15vw;
+	max-width:100px;
+
 }
 
 #book_detail_page_table{
@@ -119,4 +122,39 @@ body{
 	color:gold;
 	background-color:red;
 
+}
+
+#author_image,#publisher_image{
+	border-radius:50%;
+	float:right;
+	width:10vw;
+	min-width:150px;
+}
+
+#author_detail_table,#publisher_detail_table{
+	width:80%;
+	margin-top:2.5%;
+}
+
+#author_about,#publisher_about{
+	margin-top:5%;
+}
+
+#author_books,#publisher_books{
+	width:50vw;
+	border:3px silver solid;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	margin-top:5%;
+}
+
+#author_books #author_detail_table th,#author_books #author_detail_table td,#publisher_books #publisher_detail_table th,#publisher_books #publisher_detail_table td
+{
+	width:25%;
+	border:2px silver solid;
+}
+
+#author_books #author_detail_table,#publisher_books #publisher_detail_table{
+	width:100%;
 }

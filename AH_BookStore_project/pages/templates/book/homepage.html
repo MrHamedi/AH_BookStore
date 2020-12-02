@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 	homepage
 {% endblock title %}
@@ -8,14 +9,19 @@
 	<h3 class="book_list_name">{{book.name}}</h3>
 	<table class="book_list_table">
 		<tr>
-			<th>Author : </th><td>
+			<th>Author </th><td>
 			{% for author in book.authors_list %}
 				{{author}}
 			{% endfor %}
 			</td>
-			<th>publisher : </th><td>{{book.publisher}}</td>
-			<th>price : </th><td>{{book.book_price}}</td>
-			<td><img src="{{book.image1.url}}" class="book_list_image"></td>
+			<th>publisher </th><td>{{book.publisher}}</td>
+			<td>
+			{% if book.image1 %}
+				<a href="{{book.image1.url}}"><img class="book_detail_page_image" src="{{book.image1.url}}"></a>
+				{% else %}
+				<img class="book_detail_page_image" src="{% static 'logo.png'%}">
+			{% endif %}
+			</td>
 		</tr>
 		</table>
 		</a>
