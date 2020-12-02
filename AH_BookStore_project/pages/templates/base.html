@@ -23,7 +23,7 @@
 		{% if user.is_authenticated %}
 			<a href="{% url 'accounts:profile' %}"><button>Profile</button></a>
 		{% else %}
-			<a href=""><button>sign up</button></a>
+			<a href="{% url 'accounts:user_register' %}"><button>sign up</button></a>
 		{% endif %}
 		</div>
 		<div id="main">
